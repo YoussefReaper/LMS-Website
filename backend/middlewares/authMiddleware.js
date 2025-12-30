@@ -1,5 +1,16 @@
 import { clerkClient } from "@clerk/express"
 
+const protectRoute = async (req, res, next) => {
+    try {
+        if (!req.auth || !req.auth.userId) {
+            return res.json({success: false, message: 'Unauthorized - Please login'})
+        }
+        next()
+    } catch (error) {
+        res.json({success: false, message: error.message})
+    }
+}
+
 const protectEducator = async (req, res, next) => {
     try{
         const userId = req.auth.userId
@@ -15,4 +26,4 @@ const protectEducator = async (req, res, next) => {
     }
 }
 
-export { protectEducator }
+export { protectEducator, protectRoute }
