@@ -7,13 +7,14 @@ const Loading = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    let timer;
     if (path) {
-      const timer = setTimeout(() => {
+      timer = setTimeout(() => {
         navigate(`/${path}`)
       }, 5000)
     }
     return () => clearTimeout(timer);
-  }, []);
+  }, [path, navigate]);
 
   return (
     <div className='min-h-screen flex items-center justify-center'>
