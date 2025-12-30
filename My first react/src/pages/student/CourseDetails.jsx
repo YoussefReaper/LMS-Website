@@ -40,11 +40,11 @@ const CourseDetails = () => {
       }
 
       const token = await getToken()
-      const {data} = await axios.post(backendUrl + 'api/user/purchase', {courseId: courseData._id}, {Authorization: `Bearer ${token}`})
+      const {data} = await axios.post(backendUrl + '/api/user/purchase', {courseId: courseData._id}, {headers: {Authorization: `Bearer ${token}`}})
 
       if(data.success) {
         const {session_url} = data
-        window.locaiton.replace(session_url)
+        window.location.replace(session_url)
       } else {
         toast.error(data.message)
       }
