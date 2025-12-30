@@ -32,6 +32,7 @@ const CourseDetails = () => {
 
   const enrollCourse = async () => {
     try {
+      console.log('Clicked the button');
       if (!userData) {
         return toast.warn('Login to Enroll')
       }
