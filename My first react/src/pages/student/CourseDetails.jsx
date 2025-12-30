@@ -83,11 +83,11 @@ const CourseDetails = () => {
             <div className='flex'>
               {[...Array(5)].map((_, i)=> (<img key={i} src={i < Math.floor(calculateRating(courseData)) ? assets.star : assets.star_blank} alt='star' className='w-3.5 h-3.5' />))}
             </div>
-            <p className='text-blue-500'>{courseData.courseRatings.length} {courseData.courseRatings.length > 1 ? 'ratings': 'rating'} </p>
+            <p className='text-red-500'>{courseData.courseRatings.length} {courseData.courseRatings.length > 1 ? 'ratings': 'rating'} </p>
             <p>{courseData.enrolledStudents.length} {courseData.enrolledStudents.length > 1 ? "students" : "student"}</p>
           </div>
 
-          <p className='text-sm'>Course by <span className='text-blue-600 underline cursor-pointer'>{courseData.educator?.name || 'Unknown'}</span></p>
+          <p className='text-sm'>Course by <span className='text-red-600 underline cursor-pointer'>{courseData.educator?.name || 'Unknown'}</span></p>
 
         <div className='pt-8 text-gray-800'>
           <h2 className='text-xl font-semibold'>Course Structure</h2>
@@ -114,7 +114,7 @@ const CourseDetails = () => {
                             onClick={()=>setPlayerData({
                               videoId: lecture.lectureUrl.split('/').pop()
                             })}
-                            className='text-blue-500 cursor-pointer'>Preview</p>}
+                            className='text-red-500 cursor-pointer'>Preview</p>}
                             <p>{humanizeDuration(lecture.lectureDuration * 60 * 1000, {units: ['h', 'm']})}</p>
                           </div>
                         </div>
@@ -167,7 +167,7 @@ const CourseDetails = () => {
                 <p>{calculateNoOfLectures(courseData)} lessons</p>
               </div>
             </div>
-            <button onClick={() => enrollCourse()} className={`md:mt-6 mt-4 w-full py-3 rounded bg-blue-600 text-white font-medium${!isAlreadyEnrolled ? ' cursor-pointer' : ''}`}>{isAlreadyEnrolled ? 'Already Enrolled' : 'Enroll Now'}</button>
+            <button onClick={() => enrollCourse()} className={`md:mt-6 mt-4 w-full py-3 rounded bg-red-600 text-white font-medium${!isAlreadyEnrolled ? ' cursor-pointer' : ''}`}>{isAlreadyEnrolled ? 'Already Enrolled' : 'Enroll Now'}</button>
             <div className='pt-6'>
               <p className='md:text-xl text-lg font-medium text-gray-800'>What's in the course?</p>
               <ul className='ml-4 pt-2 text-sm md:text-default list-disc text-gray-500'>

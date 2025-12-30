@@ -108,7 +108,6 @@ const Player = () => {
   return courseData ? (
     <>
       <div className='p-4 sm:p-10 flex flex-col-reverse md:grid md:grid-cols-2 gap-10 md:px-36'>
-        {/* Left Column */}
         <div className='text-gray-800'>
           <h2 className='text-xl font-semibold'>Course Structure</h2>
 
@@ -127,7 +126,7 @@ const Player = () => {
                   <ul className='list-disc md:pl-10 pl-4 pr-4 py-2 text-gray-600 border-t border-gray-300'>
                     {chapter.chapterContent.map((lecture, i) => (
                       <li className='flex items-start gap-2 py-1' key={i}>
-                        <img src={progressData && progressData.lectureCompleted.includes(lecture.lectureId) ? assets.blue_tick_icon : assets.play_icon} alt="play icon" className='w-4 h-4 mt-1' />
+                        <img src={progressData && progressData.lectureCompleted.includes(lecture.lectureId) ? assets.red_tick_icon : assets.play_icon} alt="play icon" className='w-4 h-4 mt-1' />
                         <div className='flex items-center justify-between w-full text-gray-800 text-xs md:text-default'>
                           <p>{lecture.lectureTitle}</p>
                           <div className='flex items-center gap-2'>
@@ -135,7 +134,7 @@ const Player = () => {
                             onClick={()=>setPlayerData({
                               ...lecture, chapter: index + 1, lecture: i + 1
                             })}
-                            className='text-blue-500 cursor-pointer'>Watch</p>}
+                            className='text-red-500 cursor-pointer'>Watch</p>}
                             <p>{humanizeDuration(lecture.lectureDuration * 60 * 1000, {units: ['h', 'm']})}</p>
                           </div>
                         </div>
@@ -151,7 +150,6 @@ const Player = () => {
             <Rating initialRating={initialRating} onRate={handleRate} />
           </div>
         </div>
-        {/* Right Column */}
         <div className='md:mt-10'>
           {playerData ? (
             <div>
@@ -159,7 +157,7 @@ const Player = () => {
               iframeClassName='w-full aspect-video'/>
               <div className='flex justify-between items-center mt-1'>
                 <p>{playerData.chapter}.{playerData.lecture} {playerData.lectureTitle}</p>
-                <button onClick={() => markLectureAsCompleted(playerData.lectureId)} className='text-blue-600'>{progressData && progressData.lectureCompleted.includes(playerData.lectureId) ? 'Completed' : 'Mark Complete'}</button>
+                <button onClick={() => markLectureAsCompleted(playerData.lectureId)} className='text-red-600'>{progressData && progressData.lectureCompleted.includes(playerData.lectureId) ? 'Completed' : 'Mark Complete'}</button>
               </div>
             </div>
           ) 

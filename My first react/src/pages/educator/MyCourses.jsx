@@ -21,7 +21,6 @@ const MyCourses = () => {
       toast.error(error.message)
     }
   }
-
   useEffect(() => {
     if(isEducator) {
       fetchEducatorCourses()
