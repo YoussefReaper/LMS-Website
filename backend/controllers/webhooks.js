@@ -4,7 +4,7 @@ import Stripe from 'stripe';
 import {Purchase} from '../models/Purchase.js';
 import Course from "../models/Course.js";
 
-const clerkWebhooks = async (req, res) => {
+export const clerkWebhooks = async (req, res) => {
     try {
         const whook = new Webhook(process.env.CLERK_WEBHOOK_SECRET)
 
