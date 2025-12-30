@@ -25,9 +25,11 @@ const StudentEnrolled = () => {
     }
   }
   useEffect(() => {
-    fetchEnrolledStudents()
-  }, []);
-  return enrolledStudents !== null ? (
+    if (isEducator) {
+      fetchEnrolledStudents()
+    }
+  }, [isEducator]);
+  return enrolledStudents ? (
     <div className='min-h-screen flex flex-col items-start justify-between md:p-8 md:pb-0 p-4 pt-8 pb-0'>
         <div className='flex flex-col items-center max-w-4xl w-full overflow-hidden rounded-md bg-white border border-gray-500/20'>
           <table className='table-fixed md:table-auto w-full overflow-hidden pb-4'>
