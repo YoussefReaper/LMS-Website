@@ -1,4 +1,3 @@
-import User from "../models/User.js"
 import {Purchase} from "../models/Purchase.js";
 import User from "../models/User.js";
 import Stripe from 'stripe';
