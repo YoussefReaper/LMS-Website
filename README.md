@@ -1,0 +1,1 @@
+Youdemy is an LMS website where you can login and be a student and enroll in courses and play videos in it by paying using stripe or become educator and make courses and annual income by making others subscribe in your course and you can check all of students in dashboard.
